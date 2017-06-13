@@ -1,7 +1,7 @@
 /* Feel free to edit */
 import React, { Component } from 'react';
 import Layout from './Layout';
-import css from './App.css';
+import css from './App.scss';
 
 // If you use React Router, make this component
 // render <Router> with your routes. Currently,
