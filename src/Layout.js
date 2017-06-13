@@ -4,9 +4,8 @@ import bookings from '../bookings.json';
 
 export default function Layout({children}) {
   const bookingElements = bookings[0].bookings.map((booking, index) => {
-    console.log('booking.seated', booking.seated);
     return (
-      <tr className="booking" key={index}>
+      <tr className={`booking ${booking.cancelled ? 'booking--cancelled' : ''}`} key={index}>
         <td>{booking.title} {booking.firstName} {booking.lastName}</td>
         <td>{booking.time}</td>
         <td>{booking.partySize}</td>
