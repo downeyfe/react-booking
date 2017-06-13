@@ -1,17 +1,12 @@
 /* Feel free to edit */
 import React from 'react';
+import Booking from './booking/Booking';
 import bookings from '../bookings.json';
 
 export default function Layout({children}) {
-  const bookingElements = bookings[0].bookings.map((booking, index) => {
-    return (
-      <tr className={`booking ${booking.cancelled ? 'booking--cancelled' : ''}`} key={index}>
-        <td>{booking.title} {booking.firstName} {booking.lastName}</td>
-        <td>{booking.time}</td>
-        <td>{booking.partySize}</td>
-        <td>{booking.seated ? 'Y' : 'N'}</td>
-      </tr>
-    );
+
+  const bookingRows = bookings[0].bookings.map((booking, index) => {
+    return <Booking booking={booking} index={index} />
   });
 
   return (
@@ -30,7 +25,7 @@ export default function Layout({children}) {
           <th>Covers</th>
           <th>Seated</th>
         </tr>
-        {bookingElements}
+        {bookingRows}
       </table>
     </div>
   );
