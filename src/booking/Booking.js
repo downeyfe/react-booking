@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 
 export default class Booking extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    const { booking, index } = this.props;
+    const { booking } = this.props;
 
     return (
       <tr className={`booking ${booking.cancelled ? 'booking--cancelled' : ''}`}
-          key={index}>
+          onClick={this.props.clickHandler}>
         <td>{booking.title} {booking.firstName} {booking.lastName}</td>
         <td>{booking.time}</td>
         <td>{booking.partySize}</td>

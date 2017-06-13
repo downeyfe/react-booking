@@ -1,7 +1,5 @@
 # Basic React dev environment with hot loading
 
-**NB** To be used as part of the _Bookatable Front End and React Assessment_. See the included `task_docs` folder for full instructions and wireframes.
-
 ### Requirements
 
 Built using
