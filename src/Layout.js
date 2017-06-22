@@ -8,17 +8,17 @@ export default class Layout extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {selected: null, data: null};
+    this.state = { selected: null, data: null };
     this.bookings = bookings;
   }
 
   selectBooking(index, booking) {
-    this.setState({selected: index, data: booking});
+    this.setState({ selected: index, data: booking });
   };
 
   toggleCancel(index, data) {
     this.bookings[0].bookings[index].cancelled = !this.bookings[0].bookings[index].cancelled;
-    this.setState({selected: index, data});
+    this.setState({ selected: index, data });
   }
 
   getBookingRows() {
