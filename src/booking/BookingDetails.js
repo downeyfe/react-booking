@@ -6,8 +6,12 @@ export default class BookingDetails extends Component {
     super(props);
   }
 
+  cancelToggle() {
+    this.props.cancelHandler(this.props.index, this.props.selected);
+  }
+
   render() {
-    const selected = this.props.selected;
+    const { selected } = this.props;
 
     return selected ?
       <div>
@@ -20,9 +24,12 @@ export default class BookingDetails extends Component {
 
         <div>
           Seated:
-          <input type="radio" name="no" checked={!selected.seated && !selected.cancelled} />
-          <input type="radio" name="yes" checked={selected.seated && !selected.cancelled} />
-          <input type="radio" name="cancelled" checked={selected.cancelled} />
+          <div>
+            {/*<input type="radio" name="no" checked={!selected.seated && !selected.cancelled} />*/}
+            {/*<input type="radio" name="yes" checked={selected.seated && !selected.cancelled} />*/}
+          </div>
+          Cancelled:
+          <input type="radio" name="cancelled" onChange={this.cancelToggle.bind(this)} checked={selected.cancelled} />
         </div>
       </div> :
       null;
