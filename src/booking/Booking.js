@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 export default class Booking extends Component {
 
@@ -7,7 +7,7 @@ export default class Booking extends Component {
   }
 
   render() {
-    const { booking } = this.props;
+    const {booking} = this.props;
 
     return (
       <tr className={`booking ${booking.cancelled ? 'booking--cancelled' : ''}`}

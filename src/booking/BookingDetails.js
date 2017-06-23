@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 export default class BookingDetails extends Component {
 
@@ -11,7 +11,7 @@ export default class BookingDetails extends Component {
   }
 
   render() {
-    const { selected } = this.props;
+    const {selected} = this.props;
 
     return selected ?
       <div>
@@ -29,7 +29,7 @@ export default class BookingDetails extends Component {
             {/*<input type="radio" name="yes" checked={selected.seated && !selected.cancelled} />*/}
           </div>
           Cancelled:
-          <input type="radio" name="cancelled" onChange={this.cancelToggle.bind(this)} checked={selected.cancelled} />
+          <input type="radio" name="cancelled" onChange={this.cancelToggle.bind(this)} checked={selected.cancelled}/>
         </div>
       </div> :
       null;
