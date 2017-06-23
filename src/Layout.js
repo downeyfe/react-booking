@@ -8,22 +8,25 @@ export default class Layout extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { selected: null, data: null };
+    this.state = {selected: null, data: null};
     this.bookings = bookings;
   }
 
   selectBooking(index, booking) {
-    this.setState({ selected: index, data: booking });
+    this.setState({selected: index, data: booking});
   };
 
   toggleCancel(index, data) {
     this.bookings[0].bookings[index].cancelled = !this.bookings[0].bookings[index].cancelled;
-    this.setState({ selected: index, data });
+    this.setState({selected: index, data});
   }
 
   getBookingRows() {
     return this.bookings[0].bookings.map((booking, index) => {
-      return <Booking booking={booking} key={index} clickHandler={this.selectBooking.bind(this, index, booking)}/>
+      return <Booking className="foo"
+                      booking={booking}
+                      key={index}
+                      clickHandler={this.selectBooking.bind(this, index, booking)}/>
     });
   }
 
@@ -51,7 +54,10 @@ export default class Layout extends Component {
           </tbody>
         </table>
 
-        <BookingDetails index={this.state.selected} selected={this.state.data} cancelHandler={this.toggleCancel.bind(this)} />
+        <BookingDetails className="bar"
+                        index={this.state.selected}
+                        selected={this.state.data}
+                        cancelHandler={this.toggleCancel.bind(this)}/>
       </div>
     );
   }
