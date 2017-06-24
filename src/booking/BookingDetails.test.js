@@ -50,4 +50,15 @@ describe('Booking details rendering', () => {
 
     expect(seatedStub).toHaveBeenCalledWith(true, 1, {seated: false});
   });
+
+  it('calls unselect handler', () => {
+    const unselectStub = jest.fn();
+    const bookingEl = shallow(
+      <BookingDetails selected={{seated: false}} index={1} unselectHandler={unselectStub}/>
+    );
+
+    bookingEl.find('.unselect').props().onClick();
+
+    expect(unselectStub).toHaveBeenCalled();
+  });
 });

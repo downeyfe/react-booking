@@ -15,7 +15,7 @@ export default class Layout extends Component {
 
   getBookingRows() {
     return this.bookings[0].bookings.map((booking, index) => {
-      return <Booking className="foo"
+      return <Booking className="booking"
                       booking={booking}
                       key={index}
                       clickHandler={this.selectBooking.bind(this, index, booking)}/>
@@ -24,6 +24,10 @@ export default class Layout extends Component {
 
   selectBooking(index, booking) {
     this.setState({selected: index, data: booking});
+  }
+
+  unselectBooking() {
+    this.setState({selected: null, data: null});
   }
 
   toggleCancel(index, data) {
@@ -68,7 +72,8 @@ export default class Layout extends Component {
                           index={this.state.selected}
                           selected={this.state.data}
                           cancelHandler={this.toggleCancel.bind(this)}
-                          seatedHandler={this.toggleSeated.bind(this)} />
+                          seatedHandler={this.toggleSeated.bind(this)}
+                          unselectHandler={this.unselectBooking.bind(this)} />
         </div>
       </div>
     );

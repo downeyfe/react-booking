@@ -15,12 +15,19 @@ export default class BookingDetails extends Component {
     this.props.seatedHandler(!this.props.selected.seated, this.props.index, this.props.selected);
   }
 
+  unselect() {
+    this.props.unselectHandler();
+  }
+
   render() {
     const {selected} = this.props;
 
     return selected ?
       <div className="details">
-        <h2 className="details__heading">Booking update</h2>
+        <div className="details__heading">
+          <h2>Booking update</h2>
+          <h2 className="unselect" onClick={this.unselect.bind(this)}>X</h2>
+        </div>
 
         <div className="details__content">
 
