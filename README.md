@@ -46,3 +46,7 @@ npm run build
 
 ---
 
+
+### Tests
+* Run ```npm test``` for a single run
+* Run ```npm run test:watch``` to re-execute tests when the files change
