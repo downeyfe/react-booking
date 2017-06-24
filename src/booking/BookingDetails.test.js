@@ -29,14 +29,25 @@ describe('Booking details rendering', () => {
     });
   });
 
-  it('calls change handler with correct parameters', () => {
+  it('calls cancel change handler with correct parameters', () => {
     const cancelStub = jest.fn();
     const bookingEl = shallow(
       <BookingDetails selected={{foo: 'bar'}} index={1} cancelHandler={cancelStub}/>
     );
 
-    bookingEl.find('input').props().onChange();
+    bookingEl.find('[name="cancelled"]').props().onChange();
 
     expect(cancelStub).toHaveBeenCalledWith(1, {foo: 'bar'});
+  });
+
+  it('calls seated change handler with correct parameters', () => {
+    const seatedStub = jest.fn();
+    const bookingEl = shallow(
+      <BookingDetails selected={{seated: false}} index={1} seatedHandler={seatedStub}/>
+    );
+
+    bookingEl.find('input').first().props().onChange();
+
+    expect(seatedStub).toHaveBeenCalledWith(true, 1, {seated: false});
   });
 });

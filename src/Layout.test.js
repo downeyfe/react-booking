@@ -51,4 +51,13 @@ describe('Layout rendering', () => {
 
     expect(layoutEl.find('.foo').first().props().booking).toEqual({foo: 'bar', cancelled: false});
   });
+
+  it('updates seated value of booking when toggled', () => {
+    layoutEl.find('.foo').first().props().clickHandler();
+    layoutEl.find('.bar').props().seatedHandler(true, 0, {foo: 'bar', seated: false});
+
+    expect(layoutEl.find('.foo').first().props().booking).toEqual({foo: 'bar', seated: true, cancelled: false});
+    expect(layoutEl.state('selected')).toEqual(0);
+    expect(layoutEl.state('data')).toEqual({foo: 'bar', seated: false});
+  });
 });

@@ -12,15 +12,6 @@ export default class Layout extends Component {
     this.bookings = bookings;
   }
 
-  selectBooking(index, booking) {
-    this.setState({selected: index, data: booking});
-  };
-
-  toggleCancel(index, data) {
-    this.bookings[0].bookings[index].cancelled = !this.bookings[0].bookings[index].cancelled;
-    this.setState({selected: index, data});
-  }
-
   getBookingRows() {
     return this.bookings[0].bookings.map((booking, index) => {
       return <Booking className="foo"
@@ -28,6 +19,20 @@ export default class Layout extends Component {
                       key={index}
                       clickHandler={this.selectBooking.bind(this, index, booking)}/>
     });
+  }
+
+  selectBooking(index, booking) {
+    this.setState({selected: index, data: booking});
+  }
+
+  toggleCancel(index, data) {
+    this.bookings[0].bookings[index].cancelled = !this.bookings[0].bookings[index].cancelled;
+    this.setState({selected: index, data});
+  }
+
+  toggleSeated(isSeated, index, data) {
+    this.bookings[0].bookings[index].seated = isSeated;
+    this.setState({selected: index, data});
   }
 
   render() {
@@ -57,7 +62,8 @@ export default class Layout extends Component {
         <BookingDetails className="bar"
                         index={this.state.selected}
                         selected={this.state.data}
-                        cancelHandler={this.toggleCancel.bind(this)}/>
+                        cancelHandler={this.toggleCancel.bind(this)}
+                        seatedHandler={this.toggleSeated.bind(this)} />
       </div>
     );
   }
