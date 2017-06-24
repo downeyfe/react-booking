@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import css from './Booking.scss';
 
 export default class Booking extends Component {
 

@@ -1,0 +1,42 @@
+.layout {
+    display: flex;
+    margin: 5px;
+
+    & .bookings {
+        width: 100%;
+
+        @media screen and (min-width: 800px) {
+            width: 50%;
+        }
+
+        &--selected {
+            display: none;
+
+            @media screen and (min-width: 800px) {
+                display: block;
+            }
+        }
+
+        &__heading {
+            text-align: left;
+        }
+
+        &__grid {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+
+            &, th, td {
+                border: 1px solid #000000;
+            }
+
+            td {
+                padding: 5px;
+            }
+
+            thead {
+                background-color: #DDDDDD;
+            }
+        }
+    }
+}

@@ -3,7 +3,6 @@
 .bui-app {
     font-family: sans-serif;
     text-align: center;
-    border-bottom: 2px solid #666;
 }
 
 .bui-app-logo {
@@ -11,18 +10,17 @@
 }
 
 .bui-app-header {
-    background-color: #fff;
+    background-color: #FFFFFF;
     height: auto;
-    padding: 20px;
-    color: #000;
+    color: #000000;
 }
 
 .bui-app-intro {
-    font-size: 1rem;
-}
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 5px 0;
 
-.booking {
-    &--cancelled {
-        text-decoration: line-through;
+    @media screen and (min-width: 800px) {
+        text-align: left;
     }
 }

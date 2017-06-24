@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Booking from './booking/Booking';
 import BookingDetails from './booking/BookingDetails';
 import bookings from '../bookings.json';
+import css from './Layout.scss';
 
 export default class Layout extends Component {
 
@@ -39,31 +40,36 @@ export default class Layout extends Component {
     return (
       <div className="bui-app">
         <div className="bui-app-header">
-          {/*TODO include, or replace heading with, logo */}
-          <h1 className="bui-app-intro">Table Reservations</h1>
+          <div className="bui-app-intro">
+            <h1>Bookatable by Michelin</h1>
+          </div>
         </div>
 
-        <h2>Bookings for {new Date().toJSON().slice(0, 10)}</h2>
+        <div className="layout">
+          <div className={`bookings ${this.state.data ? 'bookings--selected' : ''}`}>
+            <h2 className="bookings__heading">Bookings for {new Date().toJSON().slice(0, 10)}</h2>
 
-        <table className="bookings__grid">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Time</th>
-              <th>Covers</th>
-              <th>Seated</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.getBookingRows()}
-          </tbody>
-        </table>
+            <table className="bookings__grid">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Time</th>
+                  <th>Covers</th>
+                  <th>Seated</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.getBookingRows()}
+              </tbody>
+            </table>
+          </div>
 
-        <BookingDetails className="bar"
-                        index={this.state.selected}
-                        selected={this.state.data}
-                        cancelHandler={this.toggleCancel.bind(this)}
-                        seatedHandler={this.toggleSeated.bind(this)} />
+          <BookingDetails className="details"
+                          index={this.state.selected}
+                          selected={this.state.data}
+                          cancelHandler={this.toggleCancel.bind(this)}
+                          seatedHandler={this.toggleSeated.bind(this)} />
+        </div>
       </div>
     );
   }
