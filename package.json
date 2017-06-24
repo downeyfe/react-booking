@@ -45,7 +45,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.scss$": "<rootDir>/config/scssStub.js"
+      "\\.(scss|svg)$": "<rootDir>/config/fileStub.js"
     }
   }
 }

@@ -16,11 +16,14 @@
 }
 
 .bui-app-intro {
-    background-color: #000000;
-    color: #FFFFFF;
+    background-color: #AAAAAA;
     padding: 5px 0;
 
     @media screen and (min-width: 800px) {
         text-align: left;
     }
+}
+
+.bui-app-logo {
+    height: 75px;
 }

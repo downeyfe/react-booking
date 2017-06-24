@@ -25,7 +25,7 @@ describe('Booking details rendering', () => {
         <BookingDetails selected={{notes: scenario.notes}}/>
       );
 
-      expect(bookingEl.contains(<p>Notes: {scenario.displayed}</p>)).toEqual(true);
+      expect(bookingEl.contains(<div><h4>Notes</h4><p>{scenario.displayed}</p></div>)).toEqual(true);
     });
   });
 
@@ -46,7 +46,7 @@ describe('Booking details rendering', () => {
       <BookingDetails selected={{seated: false}} index={1} seatedHandler={seatedStub}/>
     );
 
-    bookingEl.find('input').first().props().onChange();
+    bookingEl.find('[name="yes"]').first().props().onChange();
 
     expect(seatedStub).toHaveBeenCalledWith(true, 1, {seated: false});
   });

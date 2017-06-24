@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Booking from './booking/Booking';
 import BookingDetails from './booking/BookingDetails';
 import bookings from '../bookings.json';
+import logo from './bookatable-by-michelin-logo.svg';
 import css from './Layout.scss';
 
 export default class Layout extends Component {
@@ -45,7 +46,7 @@ export default class Layout extends Component {
       <div className="bui-app">
         <div className="bui-app-header">
           <div className="bui-app-intro">
-            <h1>Bookatable by Michelin</h1>
+            <img className="bui-app-logo" src={logo} />
           </div>
         </div>
 
